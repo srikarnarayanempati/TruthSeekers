@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TruthSeekers - A Safe Platform for Women's Stories</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#4f46e5',secondary:'#f59e0b'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1f2937;
+        }
+        .lawyer-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        input[type="checkbox"] {
+            appearance: none;
+            width: 1.25rem;
+            height: 1.25rem;
+            border: 2px solid #d1d5db;
+            border-radius: 4px;
+            position: relative;
+            cursor: pointer;
+        }
+        input[type="checkbox"]:checked {
+            background-color: #4f46e5;
+            border-color: #4f46e5;
+        }
+        input[type="checkbox"]:checked::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 1px;
+            background-color: white;
+        }
+        .custom-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 1.5em 1.5em;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Emergency Contact Button (Fixed) -->
+    <div class="fixed bottom-8 right-8 z-50">
+        <button class="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-4 py-3 rounded-full shadow-lg transition-all duration-300 !rounded-button whitespace-nowrap">
+            <div class="w-6 h-6 flex items-center justify-center">
+                <i class="ri-phone-fill ri-lg"></i>
+            </div>
+            <span class="font-semibold">Emergency Helpline</span>
+        </button>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-indigo-900 to-primary py-16 text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-20"></div>
+        <div style="background-image: url('https://public.readdy.ai/ai/img_res/9761b707149191c83562294adb88eff4.jpg'); background-size: cover; background-position: center; opacity: 0.15;" class="absolute inset-0"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-3xl">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">Legal Support Services</h1>
+                <p class="text-xl mb-8 opacity-90">Free and reduced-cost legal services for protection orders, custody, and more. Dedicated to supporting women in crisis situations.</p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button class="bg-white text-primary hover:bg-gray-100 px-6 py-3 rounded-md font-semibold shadow-md transition-all duration-300 !rounded-button whitespace-nowrap">
+                        Find Legal Help Now
+                    </button>
+                    <button class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-md font-semibold shadow-md transition-all duration-300 !rounded-button whitespace-nowrap">
+                        24/7 Crisis Hotline
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Service Categories -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Our Legal Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
+                    <div class="w-14 h-14 bg-indigo-100 rounded-full flex items-center justify-center mb-5">
+                        <i class="ri-shield-check-line ri-xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Protection Orders</h3>
+                    <p class="text-gray-600">Immediate legal protection from abusers through restraining orders and no-contact orders. Our attorneys can help file emergency protection orders within 24 hours.</p>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
+                    <div class="w-14 h-14 bg-indigo-100 rounded-full flex items-center justify-center mb-5">
+                        <i class="ri-parent-line ri-xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Child Custody</h3>
+                    <p class="text-gray-600">Legal representation for securing custody arrangements that prioritize child safety and wellbeing. Includes emergency custody petitions in crisis situations.</p>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
+                    <div class="w-14 h-14 bg-indigo-100 rounded-full flex items-center justify-center mb-5">
+                        <i class="ri-home-heart-line ri-xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Domestic Violence Cases</h3>
+                    <p class="text-gray-600">Comprehensive legal support for survivors of domestic violence, including criminal proceedings, civil remedies, and connections to support services.</p>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
+                    <div class="w-14 h-14 bg-indigo-100 rounded-full flex items-center justify-center mb-5">
+                        <i class="ri-global-line ri-xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Immigration Support</h3>
+                    <p class="text-gray-600">Specialized legal assistance for immigrant women facing abuse, including VAWA petitions, U-Visas, T-Visas, and asylum applications based on domestic violence.</p>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
+                    <div class="w-14 h-14 bg-indigo-100 rounded-full flex items-center justify-center mb-5">
+                        <i class="ri-file-list-3-line ri-xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Family Law</h3>
+                    <p class="text-gray-600">Assistance with divorce proceedings, child support, spousal support, and property division with special consideration for situations involving abuse or control.</p>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
+                    <div class="w-14 h-14 bg-indigo-100 rounded-full flex items-center justify-center mb-5">
+                        <i class="ri-home-4-line ri-xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Housing & Financial Security</h3>
+                    <p class="text-gray-600">Legal help with housing issues, debt protection, and financial recovery for women leaving abusive situations, including lease termination and credit repair.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lawyer Directory -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-6">Find Legal Representation</h2>
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-12">Our network of qualified attorneys offers free or reduced-cost legal services to women in crisis. All lawyers are vetted for experience in trauma-informed representation.</p>
+            
+            <!-- Search and Filter -->
+            <div class="bg-white p-6 rounded-lg shadow-md mb-10">
+                <div class="flex flex-col md:flex-row gap-4 mb-6">
+                    <div class="flex-1 relative">
+                        <div class="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+                            <i class="ri-search-line text-gray-400"></i>
+                        </div>
+                        <input type="text" placeholder="Search by name, specialization, or location" class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                    </div>
+                    <button class="bg-primary hover:bg-indigo-700 text-white px-6 py-3 rounded-md font-semibold transition-all duration-300 !rounded-button whitespace-nowrap">
+                        Search
+                    </button>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Specialization</label>
+                        <select class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent custom-select pr-8">
+                            <option value="">All Specializations</option>
+                            <option value="protection">Protection Orders</option>
+                            <option value="custody">Child Custody</option>
+                            <option value="domestic">Domestic Violence</option>
+                            <option value="immigration">Immigration</option>
+                            <option value="family">Family Law</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Location</label>
+                        <select class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent custom-select pr-8">
+                            <option value="">All Locations</option>
+                            <option value="downtown">Downtown</option>
+                            <option value="north">North County</option>
+                            <option value="east">East County</option>
+                            <option value="south">South County</option>
+                            <option value="west">West County</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Languages</label>
+                        <select class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent custom-select pr-8">
+                            <option value="">All Languages</option>
+                            <option value="english">English</option>
+                            <option value="spanish">Spanish</option>
+                            <option value="mandarin">Mandarin</option>
+                            <option value="vietnamese">Vietnamese</option>
+                            <option value="arabic">Arabic</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Availability</label>
+                        <select class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent custom-select pr-8">
+                            <option value="">Any Availability</option>
+                            <option value="immediate">Immediate (24hrs)</option>
+                            <option value="week">This Week</option>
+                            <option value="virtual">Virtual Only</option>
+                            <option value="weekend">Weekends</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Lawyer Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Lawyer 1 -->
+                <div class="lawyer-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300">
+                    <div class="relative">
+                        <img src="https://public.readdy.ai/ai/img_res/3831dfa847c5587c46abe3ca094d4823.jpg" alt="Sarah Martinez" class="w-full h-64 object-cover object-top">
+                        <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-semibold px-2 py-1 rounded-full">Pro Bono Available</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <div>
+                                <h3 class="text-xl font-semibold">Sarah Martinez, Esq.</h3>
+                                <p class="text-primary font-medium">Domestic Violence Specialist</p>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="text-yellow-400 flex">
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-half-fill"></i>
+                                </div>
+                                <span class="text-sm text-gray-600 ml-1">4.8</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-indigo-100 text-primary text-xs font-medium px-2.5 py-1 rounded">Protection Orders</span>
+                            <span class="bg-indigo-100 text-primary text-xs font-medium px-2.5 py-1 rounded">Domestic Violence</span>
+                            <span class="bg-indigo-100 text-primary text-xs font-medium px-2.5 py-1 rounded">Family Law</span>
+                        </div>
+                        <div class="mb-4">
+                            <p class="text-gray-600 text-sm">Former prosecutor with 12 years of experience specializing in domestic violence cases and protection orders. Trauma-informed approach to representation.</p>
+                        </div>
+                        <div class="flex flex-col gap-2 text-sm text-gray-600 mb-5">
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-time-line"></i>
+                                </div>
+                                <span>12 years experience</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-global-line"></i>
+                                </div>
+                                <span>English, Spanish</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-trophy-line"></i>
+                                </div>
+                                <span>94% success rate</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <button class="text-primary hover:text-indigo-700 font-medium flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-1">
+                                    <i class="ri-phone-line"></i>
+                                </div>
+                                (555) 123-4567
+                            </button>
+                            <button class="bg-primary hover:bg-indigo-700 text-white px-4 py-2 rounded-md font-medium transition-all duration-300 !rounded-button whitespace-nowrap">
+                                Request Consultation
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Lawyer 2 -->
+                <div class="lawyer-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300">
+                    <div class="relative">
+                        <img src="https://public.readdy.ai/ai/img_res/2f2154dd1037bdcace9617c67b08725c.jpg" alt="Michael Johnson" class="w-full h-64 object-cover object-top">
+                        <div class="absolute top-4 right-4 bg-blue-500 text-white text-xs font-semibold px-2 py-1 rounded-full">Verified Expert</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <div>
+                                <h3 class="text-xl font-semibold">Michael Johnson, JD</h3>
+                                <p class="text-primary font-medium">Family Law Attorney</p>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="text-yellow-400 flex">
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                                <span class="text-sm text-gray-600 ml-1">5.0</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-indigo-100 text-primary text-xs font-medium px-2.5 py-1 rounded">Child Custody</span>
+                            <span class="bg-indigo-100 text-primary text-xs font-medium px-2.5 py-1 rounded">Divorce</span>
+                            <span class="bg-indigo-100 text-primary text-xs font-medium px-2.5 py-1 rounded">Child Support</span>
+                        </div>
+                        <div class="mb-4">
+                            <p class="text-gray-600 text-sm">Specializing in complex custody cases with 15+ years of experience. Focused on securing safe arrangements for children in households affected by domestic violence.</p>
+                        </div>
+                        <div class="flex flex-col gap-2 text-sm text-gray-600 mb-5">
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-time-line"></i>
+                                </div>
+                                <span>15 years experience</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-global-line"></i>
+                                </div>
+                                <span>English</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-trophy-line"></i>
+                                </div>
+                                <span>89% success rate</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <button class="text-primary hover:text-indigo-700 font-medium flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-1">
+                                    <i class="ri-phone-line"></i>
+                                </div>
+                                (555) 234-5678
+                            </button>
+                            <button class="bg-primary hover:bg-indigo-700 text-white px-4 py-2 rounded-md font-medium transition-all duration-300 !rounded-button whitespace-nowrap">
+                                Request Consultation
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Lawyer 3 -->
+                <div class="lawyer-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300">
+                    <div class="relative">
+                        <img src="https://public.readdy.ai/ai/img_res/c5ab8f3445ae7691a449f69d6fc318d5.jpg" alt="Jennifer Kim" class="w-full h-64 object-cover object-top">
+                        <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-semibold px-2 py-1 rounded-full">Pro Bono Available</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <div>
+                                <h3 class="text-xl font-semibold">Jennifer Kim, Esq.</h3>
+                                <p class="text-primary font-medium">Immigration Specialist</p>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="text-yellow-400 flex">
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-line"></i>
+                                </div>
+                                <span class="text-sm text-gray-600 ml-1">4.2</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-indigo-100 text-primary text-xs font-medium px-2.5 py-1 rounded">VAWA Petitions</span>
+                            <span class="bg-indigo-100 text-primary text-xs font-medium px-2.5 py-1 rounded">U-Visas</span>
+                            <span class="bg-indigo-100 text-primary text-xs font-medium px-2.5 py-1 rounded">Asylum</span>
+                        </div>
+                        <div class="mb-4">
+                            <p class="text-gray-600 text-sm">Immigration attorney specializing in helping survivors of domestic violence secure legal status. Experienced with VAWA self-petitions and U-Visa applications.</p>
+                        </div>
+                        <div class="flex flex-col gap-2 text-sm text-gray-600 mb-5">
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-time-line"></i>
+                                </div>
+                                <span>8 years experience</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-global-line"></i>
+                                </div>
+                                <span>English, Korean, Mandarin</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-trophy-line"></i>
+                                </div>
+                                <span>87% success rate</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <button class="text-primary hover:text-indigo-700 font-medium flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-1">
+                                    <i class="ri-phone-line"></i>
+                                </div>
+                                (555) 345-6789
+                            </button>
+                            <button class="bg-primary hover:bg-indigo-700 text-white px-4 py-2 rounded-md font-medium transition-all duration-300 !rounded-button whitespace-nowrap">
+                                Request Consultation
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Lawyer 4 -->
+                <div class="lawyer-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300">
+                    <div class="relative">
+                        <img src="https://public.readdy.ai/ai/img_res/9eb18c89ce5bb37417725b1b6ec54a2f.jpg" alt="Amira Hassan" class="w-full h-64 object-cover object-top">
+                        <div class="absolute top-4 right-4 bg-blue-500 text-white text-xs font-semibold px-2 py-1 rounded-full">Verified Expert</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <div>
+                                <h3 class="text-xl font-semibold">Amira Hassan, JD</h3>
+                                <p class="text-primary font-medium">Housing Rights Attorney</p>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="text-yellow-400 flex">
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-half-fill"></i>
+                                </div>
+                                <span class="text-sm text-gray-600 ml-1">4.7</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-indigo-100 text-primary text-xs font-medium px-2.5 py-1 rounded">Housing Rights</span>
+                            <span class="bg-indigo-100 text-primary text-xs font-medium px-2.5 py-1 rounded">Lease Termination</span>
+                            <span class="bg-indigo-100 text-primary text-xs font-medium px-2.5 py-1 rounded">Financial Security</span>
+                        </div>
+                        <div class="mb-4">
+                            <p class="text-gray-600 text-sm">Specialized in helping survivors secure safe housing and financial stability. Expert in early lease termination for domestic violence survivors and housing discrimination cases.</p>
+                        </div>
+                        <div class="flex flex-col gap-2 text-sm text-gray-600 mb-5">
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-time-line"></i>
+                                </div>
+                                <span>10 years experience</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-global-line"></i>
+                                </div>
+                                <span>English, Arabic, French</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-trophy-line"></i>
+                                </div>
+                                <span>91% success rate</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <button class="text-primary hover:text-indigo-700 font-medium flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-1">
+                                    <i class="ri-phone-line"></i>
+                                </div>
+                                (555) 456-7890
+                            </button>
+                            <button class="bg-primary hover:bg-indigo-700 text-white px-4 py-2 rounded-md font-medium transition-all duration-300 !rounded-button whitespace-nowrap">
+                                Request Consultation
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Lawyer 5 -->
+                <div class="lawyer-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300">
+                    <div class="relative">
+                        <img src="https://public.readdy.ai/ai/img_res/e31f6df0f0b78ea8c7b34ce5458fe36b.jpg" alt="Carlos Rodriguez" class="w-full h-64 object-cover object-top">
+                        <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-semibold px-2 py-1 rounded-full">Pro Bono Available</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <div>
+                                <h3 class="text-xl font-semibold">Carlos Rodriguez, Esq.</h3>
+                                <p class="text-primary font-medium">Protection Order Specialist</p>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="text-yellow-400 flex">
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-line"></i>
+                                </div>
+                                <span class="text-sm text-gray-600 ml-1">4.1</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-indigo-100 text-primary text-xs font-medium px-2.5 py-1 rounded">Restraining Orders</span>
+                            <span class="bg-indigo-100 text-primary text-xs font-medium px-2.5 py-1 rounded">Emergency Protection</span>
+                            <span class="bg-indigo-100 text-primary text-xs font-medium px-2.5 py-1 rounded">Court Advocacy</span>
+                        </div>
+                        <div class="mb-4">
+                            <p class="text-gray-600 text-sm">Former judge with extensive experience in protection order cases. Available for emergency representation and can secure temporary orders within 24 hours in crisis situations.</p>
+                        </div>
+                        <div class="flex flex-col gap-2 text-sm text-gray-600 mb-5">
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-time-line"></i>
+                                </div>
+                                <span>20+ years experience</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-global-line"></i>
+                                </div>
+                                <span>English, Spanish</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-trophy-line"></i>
+                                </div>
+                                <span>95% success rate</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <button class="text-primary hover:text-indigo-700 font-medium flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-1">
+                                    <i class="ri-phone-line"></i>
+                                </div>
+                                (555) 567-8901
+                            </button>
+                            <button class="bg-primary hover:bg-indigo-700 text-white px-4 py-2 rounded-md font-medium transition-all duration-300 !rounded-button whitespace-nowrap">
+                                Request Consultation
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Lawyer 6 -->
+                <div class="lawyer-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300">
+                    <div class="relative">
+                        <img src="https://public.readdy.ai/ai/img_res/0a210d6be80049e50d12fe91e23d7856.jpg" alt="Priya Patel" class="w-full h-64 object-cover object-top">
+                        <div class="absolute top-4 right-4 bg-blue-500 text-white text-xs font-semibold px-2 py-1 rounded-full">Verified Expert</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <div>
+                                <h3 class="text-xl font-semibold">Priya Patel, JD</h3>
+                                <p class="text-primary font-medium">Family Law Attorney</p>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="text-yellow-400 flex">
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-half-fill"></i>
+                                </div>
+                                <span class="text-sm text-gray-600 ml-1">4.5</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-indigo-100 text-primary text-xs font-medium px-2.5 py-1 rounded">Divorce</span>
+                            <span class="bg-indigo-100 text-primary text-xs font-medium px-2.5 py-1 rounded">Child Support</span>
+                            <span class="bg-indigo-100 text-primary text-xs font-medium px-2.5 py-1 rounded">Asset Protection</span>
+                        </div>
+                        <div class="mb-4">
+                            <p class="text-gray-600 text-sm">Family law attorney with expertise in high-conflict divorce cases involving abuse. Specializes in securing fair financial settlements and protecting assets from abusive partners.</p>
+                        </div>
+                        <div class="flex flex-col gap-2 text-sm text-gray-600 mb-5">
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-time-line"></i>
+                                </div>
+                                <span>9 years experience</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-global-line"></i>
+                                </div>
+                                <span>English, Hindi, Gujarati</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-trophy-line"></i>
+                                </div>
+                                <span>88% success rate</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <button class="text-primary hover:text-indigo-700 font-medium flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-1">
+                                    <i class="ri-phone-line"></i>
+                                </div>
+                                (555) 678-9012
+                            </button>
+                            <button class="bg-primary hover:bg-indigo-700 text-white px-4 py-2 rounded-md font-medium transition-all duration-300 !rounded-button whitespace-nowrap">
+                                Request Consultation
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pagination -->
+            <div class="flex justify-center mt-10">
+                <nav class="inline-flex rounded-md shadow">
+                    <a href="#" class="py-2 px-4 bg-white border border-gray-300 text-sm font-medium text-gray-500 hover:bg-gray-50 rounded-l-md">Previous</a>
+                    <a href="#" class="py-2 px-4 bg-white border-t border-b border-gray-300 text-sm font-medium text-primary">1</a>
+                    <a href="#" class="py-2 px-4 bg-white border-t border-b border-gray-300 text-sm font-medium text-gray-500 hover:bg-gray-50">2</a>
+                    <a href="#" class="py-2 px-4 bg-white border-t border-b border-gray-300 text-sm font-medium text-gray-500 hover:bg-gray-50">3</a>
+                    <a href="#" class="py-2 px-4 bg-white border border-gray-300 text-sm font-medium text-gray-500 hover:bg-gray-50 rounded-r-md">Next</a>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Resources -->
+    <section class="py-16 bg-primary text-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Emergency Resources</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Helpline -->
+                <div class="bg-white bg-opacity-10 p-8 rounded-lg">
+                    <div class="w-14 h-14 bg-white bg-opacity-20 rounded-full flex items-center justify-center mb-5">
+                        <i class="ri-phone-fill ri-xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">24/7 Crisis Helpline</h3>
+                    <p class="mb-6 opacity-90">Immediate support and guidance from trained advocates who can connect you with emergency legal services.</p>
+                    <div class="flex flex-col gap-3">
+                        <a href="tel:1-800-799-7233" class="flex items-center text-lg font-semibold">
+                            <div class="w-6 h-6 flex items-center justify-center mr-2">
+                                <i class="ri-phone-fill"></i>
+                            </div>
+                            1-800-799-7233
+                        </a>
+                        <a href="sms:88788" class="flex items-center">
+                            <div class="w-6 h-6 flex items-center justify-center mr-2">
+                                <i class="ri-message-2-fill"></i>
+                            </div>
+                            Text "START" to 88788
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Emergency Services -->
+                <div class="bg-white bg-opacity-10 p-8 rounded-lg">
+                    <div class="w-14 h-14 bg-white bg-opacity-20 rounded-full flex items-center justify-center mb-5">
+                        <i class="ri-shield-cross-fill ri-xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Emergency Services</h3>
+                    <p class="mb-6 opacity-90">If you're in immediate danger, please contact emergency services right away.</p>
+                    <div class="flex flex-col gap-3">
+                        <a href="tel:911" class="flex items-center text-lg font-semibold">
+                            <div class="w-6 h-6 flex items-center justify-center mr-2">
+                                <i class="ri-alarm-warning-fill"></i>
+                            </div>
+                            Call 911
+                        </a>
+                        <a href="#" class="flex items-center">
+                            <div class="w-6 h-6 flex items-center justify-center mr-2">
+                                <i class="ri-home-heart-fill"></i>
+                            </div>
+                            Find Nearest Shelter
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Actions -->
+                <div class="bg-white bg-opacity-10 p-8 rounded-lg">
+                    <div class="w-14 h-14 bg-white bg-opacity-20 rounded-full flex items-center justify-center mb-5">
+                        <i class="ri-file-list-3-fill ri-xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Quick Legal Actions</h3>
+                    <p class="mb-6 opacity-90">Immediate steps you can take to protect yourself legally while waiting for attorney assistance.</p>
+                    <div class="flex flex-col gap-3">
+                        <a href="#" class="flex items-center">
+                            <div class="w-6 h-6 flex items-center justify-center mr-2">
+                                <i class="ri-file-paper-2-fill"></i>
+                            </div>
+                            Emergency Protection Order Forms
+                        </a>
+                        <a href="#" class="flex items-center">
+                            <div class="w-6 h-6 flex items-center justify-center mr-2">
+                                <i class="ri-map-pin-fill"></i>
+                            </div>
+                            Find Your Local Courthouse
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Resources -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Additional Resources</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- FAQ Section -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6">Frequently Asked Questions</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="border border-gray-200 rounded-lg overflow-hidden">
+                            <button class="flex justify-between items-center w-full px-6 py-4 text-left font-medium text-gray-900 bg-gray-50 hover:bg-gray-100">
+                                <span>How do I qualify for free legal services?</span>
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-arrow-down-s-line"></i>
+                                </div>
+                            </button>
+                            <div class="px-6 py-4 bg-white">
+                                <p class="text-gray-600">Our services are available to women experiencing domestic violence, sexual assault, stalking, or other forms of gender-based violence. Qualification is based on safety needs rather than income, though some services may have income requirements. Contact our helpline for a confidential assessment.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="border border-gray-200 rounded-lg overflow-hidden">
+                            <button class="flex justify-between items-center w-full px-6 py-4 text-left font-medium text-gray-900 bg-gray-50 hover:bg-gray-100">
+                                <span>How quickly can I get a protection order?</span>
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-arrow-down-s-line"></i>
+                                </div>
+                            </button>
+                            <div class="px-6 py-4 bg-white">
+                                <p class="text-gray-600">Emergency temporary protection orders can often be obtained the same day in crisis situations. Our attorneys can help file emergency petitions and represent you at hearings. In non-emergency situations, the process typically takes 1-2 weeks.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="border border-gray-200 rounded-lg overflow-hidden">
+                            <button class="flex justify-between items-center w-full px-6 py-4 text-left font-medium text-gray-900 bg-gray-50 hover:bg-gray-100">
+                                <span>What should I bring to my first legal consultation?</span>
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-arrow-down-s-line"></i>
+                                </div>
+                            </button>
+                            <div class="px-6 py-4 bg-white">
+                                <p class="text-gray-600">If possible, bring identification, any existing court documents, police reports, medical records related to abuse, communications from the abuser, and documentation of previous incidents. However, if you don't have these items, please still come to the consultation.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="border border-gray-200 rounded-lg overflow-hidden">
+                            <button class="flex justify-between items-center w-full px-6 py-4 text-left font-medium text-gray-900 bg-gray-50 hover:bg-gray-100">
+                                <span>Is my conversation with the lawyer confidential?</span>
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-arrow-down-s-line"></i>
+                                </div>
+                            </button>
+                            <div class="px-6 py-4 bg-white">
+                                <p class="text-gray-600">Yes. All communications with our attorneys are protected by attorney-client privilege and are completely confidential. Your safety and privacy are our top priorities.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Resources & Links -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6">Helpful Resources</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Document Templates -->
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mb-4">
+                                <i class="ri-file-text-line ri-lg text-primary"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold mb-3">Legal Document Templates</h4>
+                            <ul class="space-y-2 text-gray-600">
+                                <li class="flex items-start">
+                                    <div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+                                        <i class="ri-download-line text-primary"></i>
+                                    </div>
+                                    <span>Protection Order Application</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+                                        <i class="ri-download-line text-primary"></i>
+                                    </div>
+                                    <span>Safety Plan Template</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+                                        <i class="ri-download-line text-primary"></i>
+                                    </div>
+                                    <span>Evidence Documentation Form</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+                                        <i class="ri-download-line text-primary"></i>
+                                    </div>
+                                    <span>Emergency Custody Petition</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Know Your Rights -->
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mb-4">
+                                <i class="ri-scales-3-line ri-lg text-primary"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold mb-3">Know Your Rights</h4>
+                            <ul class="space-y-2 text-gray-600">
+                                <li class="flex items-start">
+                                    <div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+                                        <i class="ri-article-line text-primary"></i>
+                                    </div>
+                                    <span>Domestic Violence Laws Guide</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+                                        <i class="ri-article-line text-primary"></i>
+                                    </div>
+                                    <span>Housing Rights for Survivors</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+                                        <i class="ri-article-line text-primary"></i>
+                                    </div>
+                                    <span>Employment Protections</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+                                        <i class="ri-article-line text-primary"></i>
+                                    </div>
+                                    <span>Immigration Rights Guide</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Support Organizations -->
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mb-4">
+                                <i class="ri-home-heart-line ri-lg text-primary"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold mb-3">Support Organizations</h4>
+                            <ul class="space-y-2 text-gray-600">
+                                <li class="flex items-start">
+                                    <div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+                                        <i class="ri-links-line text-primary"></i>
+                                    </div>
+                                    <span>National Domestic Violence Hotline</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+                                        <i class="ri-links-line text-primary"></i>
+                                    </div>
+                                    <span>RAINN (Sexual Assault)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+                                        <i class="ri-links-line text-primary"></i>
+                                    </div>
+                                    <span>Local Women's Shelters Directory</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+                                        <i class="ri-links-line text-primary"></i>
+                                    </div>
+                                    <span>Financial Assistance Programs</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Support Groups -->
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mb-4">
+                                <i class="ri-group-line ri-lg text-primary"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold mb-3">Support Groups</h4>
+                            <ul class="space-y-2 text-gray-600">
+                                <li class="flex items-start">
+                                    <div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+                                        <i class="ri-calendar-line text-primary"></i>
+                                    </div>
+                                    <span>Weekly Survivor Support Circle</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+                                        <i class="ri-calendar-line text-primary"></i>
+                                    </div>
+                                    <span>Children's Healing Program</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+                                        <i class="ri-calendar-line text-primary"></i>
+                                    </div>
+                                    <span>Virtual Support Community</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+                                        <i class="ri-calendar-line text-primary"></i>
+                                    </div>
+                                    <span>Healing Through Art Workshops</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="grid grid-cols-1 md:grid-cols-2">
+                    <div class="p-8 md:p-12 bg-primary text-white">
+                        <h2 class="text-2xl font-bold mb-6">Contact Us</h2>
+                        <p class="mb-8 opacity-90">Our team is available to answer your questions and help connect you with the right legal resources. All inquiries are confidential.</p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="ri-phone-fill text-white"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold mb-1">Phone</h3>
+                                    <p>(555) 123-4567</p>
+                                    <p class="text-sm opacity-80 mt-1">Monday-Friday: 8am-8pm</p>
+                                    <p class="text-sm opacity-80">Weekend: 10am-4pm</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="ri-mail-fill text-white"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold mb-1">Email</h3>
+                                    <p>support@legalsupport.org</p>
+                                    <p class="text-sm opacity-80 mt-1">We respond within 24 hours</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="ri-map-pin-fill text-white"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold mb-1">Office</h3>
+                                    <p>123 Advocacy Street, Suite 400</p>
+                                    <p>Metro City, ST 12345</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-8 md:p-12">
+                        <h3 class="text-xl font-semibold mb-6">Send Us a Message</h3>
+                        <form>
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium text-gray-700 mb-1" for="name">Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium text-gray-700 mb-1" for="email">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium text-gray-700 mb-1" for="phone">Phone (Optional)</label>
+                                <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium text-gray-700 mb-1" for="message">Message</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"></textarea>
+                            </div>
+                            
+                            <div class="mb-6 flex items-start">
+                                <input type="checkbox" id="confidential" class="mr-2 mt-1">
+                                <label class="text-sm text-gray-600" for="confidential">I understand that this form is for general inquiries. For immediate safety concerns, please call our crisis line or 911.</label>
+                            </div>
+                            
+                            <button type="submit" class="bg-primary hover:bg-indigo-700 text-white px-6 py-3 rounded-md font-semibold transition-all duration-300 !rounded-button whitespace-nowrap">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+</body>
+</html>

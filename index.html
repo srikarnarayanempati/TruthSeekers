@@ -30,6 +30,9 @@
         .story-card:hover {
             transform: translateY(-5px);
         }
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -41,10 +44,10 @@
                 <nav class="hidden md:flex ml-10">
                     <ul class="flex space-x-8">
                         <li><a href="#" class="text-gray-800 hover:text-primary font-medium">Home</a></li>
-                        <li><a href="#" class="text-gray-800 hover:text-primary font-medium">Stories</a></li>
-                        <li><a href="#" class="text-gray-800 hover:text-primary font-medium">Share Your Story</a></li>
-                        <li><a href="#" class="text-gray-800 hover:text-primary font-medium">Resources</a></li>
-                        <li><a href="#" class="text-gray-800 hover:text-primary font-medium">About Us</a></li>
+                        <li><a href="stories.html" class="text-gray-800 hover:text-primary font-medium">Stories</a></li>
+                        <li><a href="share-your-story.html" class="text-gray-800 hover:text-primary font-medium">Share Your Story</a></li>
+                        <li><a href="#resources" class="text-gray-800 hover:text-primary font-medium">Resources</a></li>
+                        <li><a href="#footer" class="text-gray-800 hover:text-primary font-medium">About Us</a></li>
                     </ul>
                 </nav>
             </div>
@@ -77,16 +80,22 @@
             <div class="container mx-auto px-6 py-20 md:py-28 w-full">
                 <div class="max-w-2xl">
                     <h1 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">Your Voice Matters. Your Story Deserves to be Heard.</h1>
-                    <p class="mt-6 text-lg text-gray-700 leading-relaxed">TruthSeekers provides a safe, anonymous platform for women to share their experiences, connect with others, and access resources for healing and empowerment.</p>
+                    <p class="mt-6 text-lg text-gray-700 leading-relaxed text-white sm:text-gray-700">
+                    TruthSeekers provides a safe, anonymous platform for women to share their experiences, connect with others, and access resources for healing and empowerment.
+                    </p>
                     <div class="mt-8 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                        <button class="bg-primary text-white px-6 py-3 !rounded-button font-medium shadow-md hover:bg-opacity-90 whitespace-nowrap flex items-center justify-center">
-                            <span class="w-5 h-5 flex items-center justify-center mr-2"><i class="ri-edit-line"></i></span>
-                            Share Your Story
-                        </button>
-                        <button class="bg-white text-primary border border-primary px-6 py-3 !rounded-button font-medium shadow-md hover:bg-gray-50 whitespace-nowrap flex items-center justify-center">
-                            <span class="w-5 h-5 flex items-center justify-center mr-2"><i class="ri-book-open-line"></i></span>
-                            Read Stories
-                        </button>
+                        <a href="share-your-story.html" class="w-full sm:w-auto">
+                            <button class="bg-primary text-white px-6 py-3 !rounded-button font-medium shadow-md hover:bg-opacity-90 whitespace-nowrap flex items-center justify-center">
+                                <span class="w-5 h-5 flex items-center justify-center mr-2"><i class="ri-edit-line"></i></span>
+                                Share Your Story
+                            </button>
+                        </a>
+                        <a href="stories.html" class="w-full sm:w-auto">
+                            <button class="bg-white text-primary border border-primary px-6 py-3 !rounded-button font-medium shadow-md hover:bg-gray-50 whitespace-nowrap flex items-center justify-center">
+                                <span class="w-5 h-5 flex items-center justify-center mr-2"><i class="ri-book-open-line"></i></span>
+                                Read Stories
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -106,15 +115,17 @@
             </div>
             
             <div class="mt-12 text-center">
-                <button class="bg-white text-primary border border-primary px-6 py-3 !rounded-button font-medium shadow-sm hover:bg-gray-50 whitespace-nowrap">
+                <a href="stories.html">
+                    <button class="bg-white text-primary border border-primary px-6 py-3 !rounded-button font-medium shadow-sm hover:bg-gray-50 whitespace-nowrap">
                     View All Stories
-                </button>
+                    </button>
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Support Resources Section -->
-    <section class="py-16 bg-gray-50">
+    <section id="resources" class="py-16 bg-gray-50">
         <div class="container mx-auto px-6">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-gray-900">Support Resources</h2>
@@ -156,7 +167,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
+    <footer id="footer" class="bg-gray-900 text-white py-12">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
@@ -254,29 +265,28 @@
                 description: "24/7 emergency support for immediate assistance and intervention.",
                 icon: "ri-phone-line",
                 color: "bg-red-100 text-red-600",
-                link: "hotlines.html" // page for hotlines
-                
+                link: "hotlines.html"
             },
             {
                 title: "Legal Support",
                 description: "Free and reduced-cost legal services for protection orders, custody, and more.",
                 icon: "ri-scales-3-line",
                 color: "bg-blue-100 text-blue-600",
-                link: "legal.html" // page for legal support
+                link: "legal.html"
             },
             {
                 title: "Counseling Services",
                 description: "Individual and group therapy options with trauma-informed professionals.",
                 icon: "ri-mental-health-line",
                 color: "bg-green-100 text-green-600",
-                link: "counseling.html" // page for counseling
+                link: "counseling.html"
             },
             {
                 title: "Safe Housing",
                 description: "Emergency shelter and transitional housing programs for women and children.",
                 icon: "ri-home-heart-line",
                 color: "bg-yellow-100 text-yellow-600",
-                link: "housing.html" // page for housing
+                link: "housing.html"
             }
         ];
 
